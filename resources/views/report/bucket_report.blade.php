@@ -1,11 +1,10 @@
-<!-- resources/views/reports/buckets_with_balls.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
     <h1>Buckets with Balls Report (Grouped by Bucket and Ball Name)</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Bucket Name</th>
@@ -14,15 +13,32 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($bucketsWithBalls as $item)
-    <tr>
-        <td>{{ $item->bucket->name }}</td>
-        <td>{{ $item->ball->name }}</td>
-        <td>{{ $item->total_quantity }}</td>
-    </tr>
-@endforeach
-
-
+            @foreach ($bucketsWithBalls as $item)
+            <tr>
+                <td>{{ $item->bucket->name }}</td>
+                <td>{{ $item->ball->name }}</td>
+                <td>{{ $item->total_quantity }}</td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
+
+    <h1>Total Ball No assigned to Bucket due to capacity less</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Color</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($totalBallCounts as $count)
+            <tr>
+                <td>{{ $count->name }}</td>
+                <td>{{ $count->count }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

@@ -35,7 +35,8 @@ class PurchaseController extends Controller
             }
         }
         $this->assignPurchasesToBuckets();
-        return redirect()->route('purchase.create')->with('success', 'Balls purchased successfully!');
+        //return redirect()->route('purchase.create')->with('success', 'Balls purchased successfully!');
+        return redirect()->route('report.bucket')->with('success', 'Balls purchased and assigned successfully!');
     }
 
     public function assignPurchasesToBuckets()
