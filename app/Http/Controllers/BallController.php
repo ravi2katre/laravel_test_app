@@ -25,6 +25,13 @@ class BallController extends Controller
         return redirect()->route('balls.index')->with('success', 'Ball created successfully!');
     }
 
-    
+    public function destroy(Ball $ball)
+    {
+        // Delete the specified ball
+        $ball->delete();
+
+        // Redirect back or to another appropriate route
+        return redirect()->back()->with('success', 'Ball deleted successfully.');
+    }
 }
 

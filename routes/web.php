@@ -31,6 +31,7 @@ Route::delete('/buckets/{bucket}', [BucketController::class, 'destroy'])->name('
 
 Route::get('/balls', [BallController::class, 'index'])->name('balls.index');
 Route::post('/balls', [BallController::class, 'store'])->name('balls.store');
+Route::delete('/balls/{ball}', [BallController::class, 'destroy'])->name('balls.destroy');
 // Define other routes
 
 Route::get('/purchase', [PurchaseController::class, 'create'])->name('purchase.create');
