@@ -6,8 +6,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Bucket;
 use DB;
+use App\Traits\TruncateTables;
+
 class BucketController extends Controller
 {
+    use TruncateTables;
+
     public function index()
     {
         $buckets = Bucket::all();
@@ -16,18 +20,20 @@ class BucketController extends Controller
 
     public function store(Request $request)
     {
-        // Clear the Purchase and BallBucket tables
-        DB::table('purchases')->truncate();
-        DB::table('ball_buckets')->truncate();
+        // Call the function to truncate tables
+        $this->truncateTables();
+
 
         //dd($request->all());
         Bucket::create($request->all());
         return redirect()->route('buckets.index')->with('success', 'Bucket created successfully!');
     }
-    
+
     public function destroy(Bucket $bucket)
     {
         $bucket->delete();
+        // Call the function to truncate tables
+        $this->truncateTables();
 
         return redirect()->route('buckets.index')
             ->with('success', 'Bucket deleted successfully.');

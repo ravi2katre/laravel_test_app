@@ -6,9 +6,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ball;
 use DB;
+use App\Traits\TruncateTables;
 
 class BallController extends Controller
 {
+    use TruncateTables;
+
     public function index()
     {
         $balls = Ball::all();
@@ -17,9 +20,9 @@ class BallController extends Controller
 
     public function store(Request $request)
     {
-        // Clear the Purchase and BallBucket tables
-        DB::table('purchases')->truncate();
-        DB::table('ball_buckets')->truncate();
+        // Call the function to truncate tables
+        $this->truncateTables();
+
 
         Ball::create($request->all());
         return redirect()->route('balls.index')->with('success', 'Ball created successfully!');
@@ -29,6 +32,9 @@ class BallController extends Controller
     {
         // Delete the specified ball
         $ball->delete();
+        // Call the function to truncate tables
+        $this->truncateTables();
+
 
         // Redirect back or to another appropriate route
         return redirect()->back()->with('success', 'Ball deleted successfully.');
