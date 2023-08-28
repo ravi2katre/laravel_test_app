@@ -11,7 +11,7 @@ class CreateBallsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('size');
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }
