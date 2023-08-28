@@ -23,7 +23,7 @@
         </tbody>
     </table>
 
-    <h1>Total Ball No assigned to Bucket due to capacity less</h1>
+    <h1>Unnassigned Balls</h1>
     <table class="table">
         <thead>
             <tr>

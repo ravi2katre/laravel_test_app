@@ -41,7 +41,7 @@ class PurchaseController extends Controller
 
     public function assignPurchasesToBuckets()
     {
-        $buckets = Bucket::all();
+        $buckets = Bucket::orderBy('capacity', 'desc')->get();
 
         foreach ($buckets as $bucket) {
             $bucketRemainingCapacity = $bucket->capacity - $bucket->ballBuckets->sum('ball.size');
