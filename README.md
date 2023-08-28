@@ -11,6 +11,9 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 Description of Ball and Bucket Task
+
+
+<p>
 This assignment comprises three forms and one result screen. The three forms include the bucket
 form, ball form, and bucket suggestion form.
 Allow me to provide an example to further illustrate the task. Let's assume there are two buckets, A
@@ -38,3 +41,4 @@ Ball and 2 Blue balls cannot be accommodated in any bucket since there is no ava
 To add an element of enjoyment to this assignment, you need to empty all the buckets whenever a
 new bucket or new ball is created.
 Thank you, and happy coding.
+</p>
